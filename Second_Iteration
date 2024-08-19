@@ -1,0 +1,60 @@
+using System; 
+
+class RunApp
+{
+    // An array of strings containing city names, representing possible correct answers.
+    string[] testStrings = { "Cape Town", "Pretoria", "Johannesburg" };
+    int score = 0;
+
+    // Method to return a question string.
+    string AskQuestion()
+    {
+        string question = "What is the capital of South Africa?";
+        return question; // Return the question string.
+    }
+
+    // Method to get the user's answer from the console.
+    string GetUserAnswer()
+    {
+        // Reads a line of input from the console, which is the user's answer.
+        string userAnswer = Console.ReadLine();
+        return userAnswer;
+    }
+
+    // Method that contains the main logic of the application.
+    bool ValidateAnswer()
+    {
+        // Get the question from AskQuestion method and print it.
+        string question = AskQuestion();
+        Console.WriteLine(question);
+
+        // Get the user's answer from GetUserAnswer method.
+        string answer = GetUserAnswer();
+
+        // Check if the user's answer is in the testStrings array, ignoring case differences.
+
+        if (Array.Exists(testStrings, element => element.Equals(answer, StringComparison.OrdinalIgnoreCase)))       
+            return true;
+        else
+            return false;
+
+    }
+    void Result()
+    {
+        if (ValidateAnswer() == true)
+        {
+            score++;
+            Console.WriteLine("Correct" + " " + "Score: " + score);
+        }
+        else
+        {
+            Console.WriteLine("Wrong" + " " + "Score: " + score);
+        }
+    }
+    static void Main(string[] args)
+    {
+        RunApp app = new RunApp();
+
+        app.Result();
+    }
+}
