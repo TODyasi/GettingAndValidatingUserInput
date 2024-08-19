@@ -1,0 +1,44 @@
+public class ListWithStrings {
+    public List<string> answers = new List<string>()
+    {
+        "Cape Town",
+        "Bellvile",
+        "Athlone",
+        "Gugulethu",
+        "Khayelitsha",
+    };
+
+    public static string GetUserInput()
+    {
+        Console.WriteLine("Enter one area of cape town");
+        string userAnswer = Console.ReadLine();
+        return userAnswer;
+    }
+
+    public static bool CheckUserAnswer()
+    {
+        if (answers.Contains(GetUserInput()))
+            return true;
+        else
+            return false;
+    }
+    public static string Result()
+    {
+        string result;
+        if(CheckUserAnswer() == true)
+        {
+            result = "Correct";
+        }
+        else
+        {
+            result = "Incorrect";
+        }
+        return result;
+    }
+    public static void Main(string[] args)
+    {
+        GetUserInput();
+        CheckUserAnswer();
+        Result();
+    }
+}
